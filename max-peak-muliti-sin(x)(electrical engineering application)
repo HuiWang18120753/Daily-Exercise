@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt#约定俗成的写法plt
+import math
+import numpy as np
+
+f1=[[]*100]*100      #二维数组的定义
+m=1000               #横坐标切分的个数
+t=np.linspace(math. pi/6,5*math.pi,num=m)
+n=100
+for i in range(n):
+    temp=[]
+    for j in range(m):
+        temp.append(math.sqrt(2)*115*math.sin(t[j]+2*math.pi*i/3))
+    f1[i]=temp
+
+#for i in range(n):
+    #plt.plot(t,f1[i])
+    
+#取峰值（取多个函数的max）
+fmax=[]
+for i in range(m):
+    temp1=[]
+    for j in range(n):
+        temp1.append(f1[j][i])
+    fmax.append(max(temp1))
+plt.plot(t,fmax)
